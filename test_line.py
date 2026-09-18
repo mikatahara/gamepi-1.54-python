@@ -1,3 +1,5 @@
+# Fill in row by row, then clear the grid 
+# and fill in column by column.
 import time
 from gamepi_lcd import GamePiLCD
 
@@ -6,40 +8,39 @@ with GamePiLCD() as lcd:
     lcd.fill((0, 0, 0))
     time.sleep(0.5)
 
-    # 1行ずつ赤色を送る
     for y in range(80):
-        # y行だけを描画領域に設定
+        # Lines 0–79: Red
         lcd.hline(y, (255,0,0))
         time.sleep(0.02)
 
     for y in range(80,160):
-        # y行だけを描画領域に設定
+        # Lines 80–159: Green
         lcd.hline(y, (0,255,0))
         time.sleep(0.02)
 
     for y in range(160,240):
-        # y行だけを描画領域に設定
+        # Lines 160–239: Blue
         lcd.hline(y, (0,0,255))
         time.sleep(0.02)
 
     time.sleep(1)
 
+    # clear
     lcd.fill((0, 0, 0))
     time.sleep(0.5)
 
-    # 1列ずつ赤色を送る
     for x in range(80):
-        # y行だけを描画領域に設定
+        # Rows 0–79: Red
         lcd.vline(x, (255,0,0))
         time.sleep(0.02)
 
     for x in range(80,160):
-        # y行だけを描画領域に設定
+        # Rows 80–159: Green
         lcd.vline(x, (0,255,0))
         time.sleep(0.02)
 
     for x in range(160,240):
-        # y行だけを描画領域に設定
+        # Rows 160–239: Blue
         lcd.vline(x, (0,0,255))
         time.sleep(0.02)
 
